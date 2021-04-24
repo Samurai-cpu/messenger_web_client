@@ -30,12 +30,12 @@ let AESService={
         let secret = decode(cypherSecret)
         let iv = this.generateIV();
         let base = decode(value)
-        let decrypted= Crypto.AES.encrypt(base, secret,{
+        let decrypted= Crypto.AES.decrypt(base, secret,{
             mode: Crypto.mode.ECB,
             padding: Crypto.pad.Iso10126,
             iv: iv
         })
-        return decrypted.toString();
+        return decrypted.toString(Crypto.enc.Utf8);
     },
 
 

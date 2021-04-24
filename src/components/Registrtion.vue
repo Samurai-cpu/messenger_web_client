@@ -32,7 +32,9 @@ name: "Registrtion",
   },
   methods:{
   complete:function(){
-    AESService.encrypt(' ');
+    let ecrypted =AESService.encrypt('xyi','zalupa');
+    let norm = AESService.decrypt(ecrypted, 'zalupa')
+    console.log(norm)
     let bodyFormData = new FormData();
     bodyFormData.append('email',this.email)
     bodyFormData.append('userName',this.userName)
