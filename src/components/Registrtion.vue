@@ -16,6 +16,7 @@
 <script>
 import MyInput from "@/components/MyInput";
 import MyButton from "@/components/MyButton";
+import AESService from "@/aesservice";
 import axios from "axios";
 export default {
 name: "Registrtion",
@@ -31,6 +32,7 @@ name: "Registrtion",
   },
   methods:{
   complete:function(){
+    AESService.encrypt(' ');
     let bodyFormData = new FormData();
     bodyFormData.append('email',this.email)
     bodyFormData.append('userName',this.userName)
