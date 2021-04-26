@@ -4,9 +4,9 @@
   <my-input v-model="userName" placeholder="User Name"></my-input>
   <my-input v-model="password" placeholder="Password"></my-input>
   <my-input  v-model="phone" placeholder="Phone number"></my-input>
-  <MyButton id="reg-btn" @click.native="complete"></MyButton>
-  <router-link :to="{name:'authorization'}">
-  <MyButton id="back-btn" ></MyButton>
+  <MyButton id="reg-btn" @click.native="complete" v-text="'Confirm'"> </MyButton>
+  <router-link :to="{name:'authorization'}" >
+  <MyButton id="back-btn" v-text="'Back'"></MyButton>
   </router-link>
   <p>{{email}}</p>
 </div>
@@ -49,11 +49,18 @@ name: "Registrtion",
         .then(function (response) {
           //handle success
           console.log(response);
-        })
+          localStorage.setItem('userName',response.data.userName)
+          localStorage.setItem('accessToken',response.data.accessToken)
+          localStorage.setItem('refreshToken', response.data.refreshToken)
+        },)
         .catch(function (response) {
           //handle error
           console.log(response);
         });
+    localStorage.setItem('email',this.email)
+    localStorage.setItem('phone',this.phone)
+    localStorage.setItem('password',this.password)
+    this.$router.push('/phoneconfirm')
   }
   }
 }

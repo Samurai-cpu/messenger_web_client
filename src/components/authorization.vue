@@ -3,9 +3,9 @@
 
      <my-input placeholder="Phone number"></my-input>
      <my-input placeholder="Password"></my-input>
-     <my-button id="sign-btn" @click.native="test"></my-button>
+     <my-button id="sign-btn" @click.native="test" v-text="'Sign in'"></my-button>
      <router-link :to="{name:'registration'}">
-       <my-button id="reg-btn" @click.native="registr"></my-button>
+       <my-button id="reg-btn" @click.native="registr" v-text="'Sign up'"></my-button>
      </router-link>
 
  </div>
